@@ -139,6 +139,32 @@ body {
 }
 
 .notifications-list {
-    margin: 1rem;
-    background-color: var(--light-grayish-blue-1);
+    padding: 0;
+    /*margin: 1rem;*/
+}
+
+.notification {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+    background-color: var(--white);
+    border-radius: 0.35rem;
+    padding: 0.5rem;
+    /*display: flex;*/
+    /*align-items: center;*/
+}
+
+.notification img {
+    height: 2.5rem;
+}
+
+.notification p {
+    text-align: start;
+    font-size: 0.75rem;
+    margin: 0.5rem;
+}
+
+.notification_new {
+    background-color: var(--very-light-grayish-blue);
 }
