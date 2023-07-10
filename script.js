@@ -109,8 +109,7 @@ function createNotificationsList() {
                 message.appendChild(actionTextReact);
                 const postText = document.createElement('span');
                 postText.textContent = notification.post;
-                postText.style.color = 'hsl(219, 12%, 42%)';
-                postText.style.fontWeight = "bold";
+                postText.classList.add("post-text")
                 message.appendChild(postText);
                 if(notification.status === 'NEW') {
                     listItem.classList.add('notification__new');
@@ -145,8 +144,7 @@ function createNotificationsList() {
                 message.appendChild(actionTextGroup);
                 const groupText = document.createElement('span');
                 groupText.textContent = notification.group;
-                groupText.style.color = 'hsl(219, 85%, 26%)'
-                groupText.style.fontWeight = "bold"
+                groupText.classList.add('group-text');
                 message.appendChild(groupText)
                 if(notification.status === 'NEW') {
                     listItem.classList.add('notification__new');
@@ -209,7 +207,7 @@ function createNotificationsList() {
 function defineUserNameSpan(userName) {
     const userNameText = document.createElement('span');
     userNameText.textContent = userName;
-    userNameText.style.fontWeight = "bold"
+    userNameText.classList.add('user-name');
     return userNameText
 }
 function defineNotificationTimeSpan(notificationTime) {

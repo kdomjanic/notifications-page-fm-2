@@ -102,6 +102,7 @@ body {
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
+    overflow: auto;
 }
 
 .header {
@@ -160,11 +161,32 @@ body {
     margin: 0.5rem;
 }
 
-.bold {
-    font-weight: var(--fw-bold);
-}
 .notification__new {
     background-color: var(--very-light-grayish-blue);
+}
+
+.user-name{
+    font-weight: var(--fw-bold);
+}
+.user-name:hover {
+    cursor: pointer;
+    color: var(--blue);
+}
+.post-text {
+    color: var(--dark-grayish-blue);
+    font-weight: var(--fw-bold);
+}
+.post-text:hover {
+    cursor: pointer;
+    color: var(--blue);
+}
+.group-text {
+    color: var(--blue);
+    font-weight: var(--fw-bold);
+}
+.group-text:hover {
+    cursor: pointer;
+    color: var(--blue);
 }
 
 .new-dot {
@@ -182,10 +204,19 @@ body {
     margin: 0.25rem 0 !important;
     padding: 0.5rem
 }
+.private-message:hover {
+    cursor: pointer;
+    background-color: var(--light-grayish-blue-1);
+}
 
 .commented-picture {
     margin-left: auto !important;
     margin-right: 0.65rem !important;
+}
+.commented-picture:hover {
+    cursor: pointer;
+    border: 1px solid var(--light-grayish-blue-1);
+    border-radius: 0.35rem;
 }
 
 /* Active states */
@@ -193,15 +224,7 @@ button:hover {
     cursor: pointer;
     color: var(--blue)
 }
-.commented-picture:hover {
-    cursor: pointer;
-    border: 1px solid var(--light-grayish-blue-1);
-    border-radius: 0.35rem;
-}
-.private-message:hover {
-    cursor: pointer;
-    background-color: var(--light-grayish-blue-1);
-}
+
 @media screen and (min-width: 600px) {
     body {
         display: flex;
