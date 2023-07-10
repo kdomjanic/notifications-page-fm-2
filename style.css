@@ -110,14 +110,14 @@ body {
     align-items: center;
     margin: 1rem 1rem 0.5rem 1rem;
 }
-.header_left {
+.header__left {
     display: flex;
     align-items: center;
 }
-.header_left h1 {
+.header__left h1 {
     font-size: 1.25rem;
 }
-.notifications-number {
+.notifications-number-holder {
     background-color: var(--blue);
     color: var(--white);
     width: 2rem;
@@ -163,7 +163,7 @@ body {
 .bold {
     font-weight: var(--fw-bold);
 }
-.notification_new {
+.notification__new {
     background-color: var(--very-light-grayish-blue);
 }
 
@@ -176,14 +176,14 @@ body {
     margin-left: 5px;
 }
 
-.private_message {
+.private-message {
     border: 1px solid var(--grayish-blue);
     border-radius: 0.35rem;
     margin: 0.25rem 0 !important;
     padding: 0.5rem
 }
 
-.commented_picture {
+.commented-picture {
     margin-left: auto !important;
     margin-right: 0.65rem !important;
 }
@@ -193,12 +193,12 @@ button:hover {
     cursor: pointer;
     color: var(--blue)
 }
-.commented_picture:hover {
+.commented-picture:hover {
     cursor: pointer;
     border: 1px solid var(--light-grayish-blue-1);
     border-radius: 0.35rem;
 }
-.private_message:hover {
+.private-message:hover {
     cursor: pointer;
     background-color: var(--light-grayish-blue-1);
 }

@@ -1,5 +1,5 @@
-const notificationList = document.getElementById("notificationsList");
-
+const notificationList = document.getElementById('notifications-list');
+const notificationsNumber = document.getElementById('notifications-number')
 const notifications = [
     {
         imageSrc: 'assets/avatar-mark-webber.webp',
@@ -80,119 +80,131 @@ const notifications = [
     },
 ]
 
-notifications.forEach(function(notification) {
-    // CREATE LIST ITEM
-    const listItem = document.createElement('li');
-    listItem.classList.add('notification');
-    // ADD USER IMAGE
-    const userImage = document.createElement('img');
-    userImage.src = notification.imageSrc;
-    // CREATE MESSAGE PARAGRAPH
-    const message = document.createElement('p')
-    // BUILD MESSAGE
-    switch (notification.action) {
-        case 'REACT_TO_POST':
-            const userNameTextReact = defineUserNameSpan(notification.userName);
-            message.appendChild(userNameTextReact);
-            const actionTextReact = document.createElement("span");
-            actionTextReact.textContent = ` reacted to your recent post `;
-            message.appendChild(actionTextReact);
-            const postText = document.createElement('span');
-            postText.textContent = notification.post;
-            postText.style.color = 'hsl(219, 12%, 42%)';
-            postText.style.fontWeight = "bold";
-            message.appendChild(postText);
-            if(notification.status === 'NEW') {
-                listItem.classList.add('notification_new');
-                const notificationStatusSpan = addNotificationStatusDot();
-                message.appendChild(notificationStatusSpan)
-            }
-            message.appendChild(document.createElement('br'));
-            const notificationTimeReact = defineNotificationTimeSpan(notification.time);
-            message.appendChild(notificationTimeReact);
-            break
-        case 'FOLLOW':
-            const userNameTextFollow = defineUserNameSpan(notification.userName);
-            message.appendChild(userNameTextFollow);
-            const actionTextFollow = document.createElement("span");
-            actionTextFollow.textContent = ` followed you`;
-            message.appendChild(actionTextFollow);
-            if(notification.status === 'NEW') {
-                listItem.classList.add('notification_new');
-                const notificationStatusSpan = addNotificationStatusDot();
-                message.appendChild(notificationStatusSpan)
-            }
-            message.appendChild(document.createElement('br'));
-            const notificationTimeFollow = defineNotificationTimeSpan(notification.time);
-            message.appendChild(notificationTimeFollow);
-            break
-        case 'JOIN_GROUP':
-        case 'LEFT_GROUP':
-            const userNameTextGroup = defineUserNameSpan(notification.userName);
-            message.appendChild(userNameTextGroup);
-            const actionTextGroup = document.createElement("span");
-            actionTextGroup.textContent = (notification.action === 'JOIN_GROUP') ? ' has joined your group ' : ' has left the group ';
-            message.appendChild(actionTextGroup);
-            const groupText = document.createElement('span');
-            groupText.textContent = notification.group;
-            groupText.style.color = 'hsl(219, 85%, 26%)'
-            groupText.style.fontWeight = "bold"
-            message.appendChild(groupText)
-            if(notification.status === 'NEW') {
-                listItem.classList.add('notification_new');
-                const notificationStatusSpan = addNotificationStatusDot();
-                message.appendChild(notificationStatusSpan)
-            }
-            message.appendChild(document.createElement('br'));
-            const notificationTimeGroup = defineNotificationTimeSpan(notification.time);
-            message.appendChild(notificationTimeGroup);
-            break
-        case "PRIVATE_MESSAGE":
-            const userNameTextPrivateMessage = defineUserNameSpan(notification.userName);
-            message.appendChild(userNameTextPrivateMessage);
-            const actionTextPrivateMessage = document.createElement("span");
-            actionTextPrivateMessage.textContent = ` sent you a private message `;
-            message.appendChild(actionTextPrivateMessage);
-            if(notification.status === 'NEW') {
-                listItem.classList.add('notification_new');
-                const notificationStatusSpan = addNotificationStatusDot();
-                message.appendChild(notificationStatusSpan)
-            }
-            message.appendChild(document.createElement('br'));
-            const notificationTimePrivateMessage = defineNotificationTimeSpan(notification.time);
-            message.appendChild(notificationTimePrivateMessage);
-            const privateMessage = document.createElement("p");
-            privateMessage.textContent = `${notification.message}`;
-            privateMessage.classList.add('private_message');
-            message.appendChild(privateMessage)
-            break
-        case "COMMENT_ON_PICTURE":
-            const userNameTextComment = defineUserNameSpan(notification.userName);
-            message.appendChild(userNameTextComment);
-            const actionTextComment = document.createElement("span");
-            actionTextComment.textContent = ` commented on your picture`;
-            message.appendChild(actionTextComment);
-            if(notification.status === 'NEW') {
-                listItem.classList.add('notification_new');
-                const notificationStatusSpan = addNotificationStatusDot();
-                message.appendChild(notificationStatusSpan)
-            }
-            message.appendChild(document.createElement('br'));
-            const notificationTimeComment = defineNotificationTimeSpan(notification.time);
-            message.appendChild(notificationTimeComment);
-            break
-    }
+// INITIALIZATION
+createNotificationsList()
 
-    listItem.appendChild(userImage);
-    listItem.appendChild(message);
-    if(notification.commentedPicture !== null) {
-        const commentedImage = document.createElement('img');
-        commentedImage.src = notification.commentedPicture;
-        commentedImage.classList.add('commented_picture')
-        listItem.appendChild(commentedImage);
-    }
-    notificationList.appendChild(listItem);
-});
+function createNotificationsList() {
+    notificationList.innerHTML = '';
+    notificationsNumber.innerText = '0'
+    let notificationsNumberCounter = 0;
+    notifications.forEach(function(notification) {
+        if(notification.status === 'NEW') {
+            notificationsNumberCounter++
+        }
+        // CREATE LIST ITEM
+        const listItem = document.createElement('li');
+        listItem.classList.add('notification');
+        // ADD USER IMAGE
+        const userImage = document.createElement('img');
+        userImage.src = notification.imageSrc;
+        // CREATE MESSAGE PARAGRAPH
+        const message = document.createElement('p')
+        // BUILD MESSAGE
+        switch (notification.action) {
+            case 'REACT_TO_POST':
+                const userNameTextReact = defineUserNameSpan(notification.userName);
+                message.appendChild(userNameTextReact);
+                const actionTextReact = document.createElement("span");
+                actionTextReact.textContent = ` reacted to your recent post `;
+                message.appendChild(actionTextReact);
+                const postText = document.createElement('span');
+                postText.textContent = notification.post;
+                postText.style.color = 'hsl(219, 12%, 42%)';
+                postText.style.fontWeight = "bold";
+                message.appendChild(postText);
+                if(notification.status === 'NEW') {
+                    listItem.classList.add('notification__new');
+                    const notificationStatusSpan = addNotificationStatusDot();
+                    message.appendChild(notificationStatusSpan)
+                }
+                message.appendChild(document.createElement('br'));
+                const notificationTimeReact = defineNotificationTimeSpan(notification.time);
+                message.appendChild(notificationTimeReact);
+                break
+            case 'FOLLOW':
+                const userNameTextFollow = defineUserNameSpan(notification.userName);
+                message.appendChild(userNameTextFollow);
+                const actionTextFollow = document.createElement("span");
+                actionTextFollow.textContent = ` followed you`;
+                message.appendChild(actionTextFollow);
+                if(notification.status === 'NEW') {
+                    listItem.classList.add('notification__new');
+                    const notificationStatusSpan = addNotificationStatusDot();
+                    message.appendChild(notificationStatusSpan)
+                }
+                message.appendChild(document.createElement('br'));
+                const notificationTimeFollow = defineNotificationTimeSpan(notification.time);
+                message.appendChild(notificationTimeFollow);
+                break
+            case 'JOIN_GROUP':
+            case 'LEFT_GROUP':
+                const userNameTextGroup = defineUserNameSpan(notification.userName);
+                message.appendChild(userNameTextGroup);
+                const actionTextGroup = document.createElement("span");
+                actionTextGroup.textContent = (notification.action === 'JOIN_GROUP') ? ' has joined your group ' : ' has left the group ';
+                message.appendChild(actionTextGroup);
+                const groupText = document.createElement('span');
+                groupText.textContent = notification.group;
+                groupText.style.color = 'hsl(219, 85%, 26%)'
+                groupText.style.fontWeight = "bold"
+                message.appendChild(groupText)
+                if(notification.status === 'NEW') {
+                    listItem.classList.add('notification__new');
+                    const notificationStatusSpan = addNotificationStatusDot();
+                    message.appendChild(notificationStatusSpan)
+                }
+                message.appendChild(document.createElement('br'));
+                const notificationTimeGroup = defineNotificationTimeSpan(notification.time);
+                message.appendChild(notificationTimeGroup);
+                break
+            case "PRIVATE_MESSAGE":
+                const userNameTextPrivateMessage = defineUserNameSpan(notification.userName);
+                message.appendChild(userNameTextPrivateMessage);
+                const actionTextPrivateMessage = document.createElement("span");
+                actionTextPrivateMessage.textContent = ` sent you a private message `;
+                message.appendChild(actionTextPrivateMessage);
+                if(notification.status === 'NEW') {
+                    listItem.classList.add('notification__new');
+                    const notificationStatusSpan = addNotificationStatusDot();
+                    message.appendChild(notificationStatusSpan)
+                }
+                message.appendChild(document.createElement('br'));
+                const notificationTimePrivateMessage = defineNotificationTimeSpan(notification.time);
+                message.appendChild(notificationTimePrivateMessage);
+                const privateMessage = document.createElement("p");
+                privateMessage.textContent = `${notification.message}`;
+                privateMessage.classList.add('private-message');
+                message.appendChild(privateMessage)
+                break
+            case "COMMENT_ON_PICTURE":
+                const userNameTextComment = defineUserNameSpan(notification.userName);
+                message.appendChild(userNameTextComment);
+                const actionTextComment = document.createElement("span");
+                actionTextComment.textContent = ` commented on your picture`;
+                message.appendChild(actionTextComment);
+                if(notification.status === 'NEW') {
+                    listItem.classList.add('notification__new');
+                    const notificationStatusSpan = addNotificationStatusDot();
+                    message.appendChild(notificationStatusSpan)
+                }
+                message.appendChild(document.createElement('br'));
+                const notificationTimeComment = defineNotificationTimeSpan(notification.time);
+                message.appendChild(notificationTimeComment);
+                break
+        }
+
+        listItem.appendChild(userImage);
+        listItem.appendChild(message);
+        if(notification.commentedPicture !== null) {
+            const commentedImage = document.createElement('img');
+            commentedImage.src = notification.commentedPicture;
+            commentedImage.classList.add('commented-picture')
+            listItem.appendChild(commentedImage);
+        }
+        notificationList.appendChild(listItem);
+        notificationsNumber.innerText = String(notificationsNumberCounter)
+    });
+}
 
 function defineUserNameSpan(userName) {
     const userNameText = document.createElement('span');
@@ -212,4 +224,9 @@ function addNotificationStatusDot() {
     return notificationStatusSpan
 }
 
-
+function markAllAsRead() {
+    notifications.map((notification) => {
+        notification.status = null;
+    })
+    createNotificationsList()
+}

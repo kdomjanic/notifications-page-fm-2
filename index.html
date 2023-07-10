@@ -14,17 +14,17 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header_left">
+            <div class="header__left">
                 <h1>Notifications</h1>
-                <div class="notifications-number">
-                    <p>3</p>
+                <div class="notifications-number-holder">
+                    <p id="notifications-number">3</p>
                 </div>
             </div>
-            <div class="header_right">
-                <button class="mark-button">Mark all as read</button>
+            <div class="header__right">
+                <button class="mark-button" onclick="markAllAsRead()">Mark all as read</button>
             </div>
         </div>
-        <ul id="notificationsList" class="notifications-list"></ul>
+        <ul id="notifications-list" class="notifications-list"></ul>
     </div>
     <script src="script.js"></script>
 </body>
