@@ -107,9 +107,18 @@ function createNotificationsList() {
                 const actionTextReact = document.createElement("span");
                 actionTextReact.textContent = ` reacted to your recent post `;
                 message.appendChild(actionTextReact);
+
                 const postText = document.createElement('span');
-                postText.textContent = notification.post;
-                postText.classList.add("post-text")
+                const postLinkElement = document.createElement('a');
+                postLinkElement.href = 'https://google.com';
+                postLinkElement.textContent = notification.post;
+                postLinkElement.classList.add('post-text-link');
+                postLinkElement.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.open(postLinkElement.href);
+                });
+                postText.appendChild(postLinkElement)
+
                 message.appendChild(postText);
                 if(notification.status === 'NEW') {
                     listItem.classList.add('notification__new');
@@ -142,9 +151,19 @@ function createNotificationsList() {
                 const actionTextGroup = document.createElement("span");
                 actionTextGroup.textContent = (notification.action === 'JOIN_GROUP') ? ' has joined your group ' : ' has left the group ';
                 message.appendChild(actionTextGroup);
+
                 const groupText = document.createElement('span');
-                groupText.textContent = notification.group;
+                const linkElement = document.createElement('a');
+                linkElement.href = 'https://google.com';
+                linkElement.textContent = notification.group;
+                linkElement.classList.add('group-text-link');
+                linkElement.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.open(linkElement.href);
+                });
+                groupText.appendChild(linkElement)
                 groupText.classList.add('group-text');
+
                 message.appendChild(groupText)
                 if(notification.status === 'NEW') {
                     listItem.classList.add('notification__new');
@@ -206,8 +225,15 @@ function createNotificationsList() {
 
 function defineUserNameSpan(userName) {
     const userNameText = document.createElement('span');
-    userNameText.textContent = userName;
-    userNameText.classList.add('user-name');
+    const linkElement = document.createElement('a');
+    linkElement.href = 'https://google.com';
+    linkElement.textContent = userName;
+    linkElement.classList.add('user-name-link');
+    linkElement.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.open(linkElement.href);
+    });
+    userNameText.appendChild(linkElement)
     return userNameText
 }
 function defineNotificationTimeSpan(notificationTime) {

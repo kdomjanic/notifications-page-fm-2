@@ -165,26 +165,31 @@ body {
     background-color: var(--very-light-grayish-blue);
 }
 
-.user-name{
+.user-name-link {
     font-weight: var(--fw-bold);
+    text-decoration: none;
+    color: var(--very-dark-blue)
 }
-.user-name:hover {
+.user-name-link:hover {
     cursor: pointer;
     color: var(--blue);
 }
-.post-text {
+.post-text-link {
+    text-decoration: none;
+    font-weight: var(--fw-bold);
     color: var(--dark-grayish-blue);
-    font-weight: var(--fw-bold);
 }
-.post-text:hover {
+.post-text-link:hover {
     cursor: pointer;
     color: var(--blue);
 }
-.group-text {
-    color: var(--blue);
+.group-text-link {
     font-weight: var(--fw-bold);
+
+    text-decoration: none;
+    color: var(--blue)
 }
-.group-text:hover {
+.group-text-link:hover {
     cursor: pointer;
     color: var(--blue);
 }
