@@ -8,7 +8,7 @@ const notifications = [
         post: 'My first tournament today!',
         status: 'NEW',
         group: null,
-        time: '1m ago',
+        time: '2023-07-11T07:56:17.718Z',
         message: null,
         commentedPicture: null,
     },
@@ -19,7 +19,7 @@ const notifications = [
         post: null,
         status: 'NEW',
         group: null,
-        time: '5m ago',
+        time: '2023-07-11T05:50:17.718Z',
         message: null,
         commentedPicture: null
     },
@@ -30,7 +30,7 @@ const notifications = [
         post: null,
         status: 'NEW',
         group: 'Chess Club',
-        time: '1 day ago',
+        time: '2023-07-10T11:56:17.718Z',
         message: null,
         commentedPicture: null
     },
@@ -41,7 +41,7 @@ const notifications = [
         post: null,
         status: null,
         group: null,
-        time: '5 days ago',
+        time: '2023-07-08T08:56:17.718Z',
         message: `Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now, and I'm already having lots of fun and improving my game.`,
         commentedPicture: null
     },
@@ -52,7 +52,7 @@ const notifications = [
         post: null,
         status: null,
         group: null,
-        time: '1 week ago',
+        time: '2023-07-01T16:00:17.718Z',
         message: null,
         commentedPicture: 'assets/image-chess.webp'
     },
@@ -63,7 +63,7 @@ const notifications = [
         post: '5 end-game strategies to increase your win rate',
         status: null,
         group: null,
-        time: '2 week ago',
+        time: '2023-06-28T18:26:17.718Z',
         message: null,
         commentedPicture: null,
     },
@@ -74,7 +74,7 @@ const notifications = [
         post: null,
         status: null,
         group: 'Chess Club',
-        time: '2 week ago',
+        time: '2023-04-26T18:26:17.718Z',
         message: null,
         commentedPicture: null,
     },
@@ -212,7 +212,8 @@ function defineUserNameSpan(userName) {
 }
 function defineNotificationTimeSpan(notificationTime) {
     const notificationTimeSpan = document.createElement('span');
-    notificationTimeSpan.textContent = `${notificationTime}`;
+    const time = getRelativeTime(new Date(notificationTime))
+    notificationTimeSpan.textContent = `${time}`;
     notificationTimeSpan.style.color = 'hsl(219, 14%, 63%)';
     return notificationTimeSpan
 }
@@ -227,4 +228,21 @@ function markAllAsRead() {
         notification.status = null;
     })
     createNotificationsList()
+}
+
+function getRelativeTime(timestamp) {
+    const currentTime = Date.now();
+    const timeDifference = currentTime - timestamp;
+
+    const minutes = Math.floor(timeDifference / 60000);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+        return days + " day" + (days > 1 ? "s" : "") + " ago";
+    } else if (hours > 0) {
+        return hours + " hour" + (hours > 1 ? "s" : "") + " ago";
+    } else {
+        return minutes + " minute" + (minutes > 1 ? "s" : "") + " ago";
+    }
 }
