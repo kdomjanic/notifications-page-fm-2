@@ -203,7 +203,7 @@ function createNotificationsList() {
                 message.appendChild(document.createElement('br'));
                 const notificationTimePrivateMessage = defineNotificationTimeSpan(notification.time);
                 message.appendChild(notificationTimePrivateMessage);
-                const privateMessage = document.createElement("p");
+                const privateMessage = document.createElement("span");
                 privateMessage.textContent = `${notification.message}`;
                 privateMessage.classList.add('private-message');
                 message.appendChild(privateMessage)
