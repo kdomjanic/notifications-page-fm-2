@@ -12,6 +12,7 @@ const notifications = [
         time: '2023-07-11T07:56:17.718Z',
         message: null,
         commentedPicture: null,
+        commentedPictureAltText: null
     },
     {
         imageSrc: 'assets/avatar-angela-gray.webp',
@@ -23,7 +24,8 @@ const notifications = [
         group: null,
         time: '2023-07-11T05:50:17.718Z',
         message: null,
-        commentedPicture: null
+        commentedPicture: null,
+        commentedPictureAltText: null
     },
     {
         imageSrc: 'assets/avatar-jacob-thompson.webp',
@@ -35,7 +37,8 @@ const notifications = [
         group: 'Chess Club',
         time: '2023-07-10T11:56:17.718Z',
         message: null,
-        commentedPicture: null
+        commentedPicture: null,
+        commentedPictureAltText: null
     },
     {
         imageSrc: 'assets/avatar-rizky-hasanuddin.webp',
@@ -47,7 +50,8 @@ const notifications = [
         group: null,
         time: '2023-07-08T08:56:17.718Z',
         message: `Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now, and I'm already having lots of fun and improving my game.`,
-        commentedPicture: null
+        commentedPicture: null,
+        commentedPictureAltText: null
     },
     {
         imageSrc: 'assets/avatar-kimberly-smith.webp',
@@ -59,7 +63,8 @@ const notifications = [
         group: null,
         time: '2023-07-01T16:00:17.718Z',
         message: null,
-        commentedPicture: 'assets/image-chess.webp'
+        commentedPicture: 'assets/image-chess.webp',
+        commentedPictureAltText: 'Chess player'
     },
     {
         imageSrc: 'assets/avatar-nathan-peterson.webp',
@@ -72,6 +77,7 @@ const notifications = [
         time: '2023-06-28T18:26:17.718Z',
         message: null,
         commentedPicture: null,
+        commentedPictureAltText: null
     },
     {
         imageSrc: 'assets/avatar-anna-kim.webp',
@@ -84,6 +90,7 @@ const notifications = [
         time: '2023-04-26T18:26:17.718Z',
         message: null,
         commentedPicture: null,
+        commentedPictureAltText: null
     },
 ]
 

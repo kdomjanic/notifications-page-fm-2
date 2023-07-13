@@ -90,7 +90,7 @@ body {
     font-family: var(--ff-primary);
     font-weight: var(--fw-regular);
     text-align: center;
-    background-color: var(--light-grayish-blue-2);
+    background-color: var(--very-light-grayish-blue);
 }
 
 .container {
