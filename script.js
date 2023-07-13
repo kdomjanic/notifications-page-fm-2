@@ -230,6 +230,7 @@ function createNotificationsList() {
         if(notification.commentedPicture !== null) {
             const commentedImage = document.createElement('img');
             commentedImage.src = notification.commentedPicture;
+            commentedImage.alt = notification.commentedPictureAltText;
             commentedImage.classList.add('commented-picture')
             listItem.appendChild(commentedImage);
         }
