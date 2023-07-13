@@ -170,7 +170,7 @@ body {
     text-decoration: none;
     color: var(--very-dark-blue)
 }
-.user-name-link:hover {
+.user-name-link:hover:active {
     cursor: pointer;
     color: var(--blue);
 }
@@ -179,7 +179,7 @@ body {
     font-weight: var(--fw-bold);
     color: var(--dark-grayish-blue);
 }
-.post-text-link:hover {
+.post-text-link:hover:active {
     cursor: pointer;
     color: var(--blue);
 }
@@ -189,7 +189,7 @@ body {
     text-decoration: none;
     color: var(--blue)
 }
-.group-text-link:hover {
+.group-text-link:hover:active {
     cursor: pointer;
     color: var(--blue);
 }
@@ -225,7 +225,7 @@ body {
 }
 
 /* Active states */
-button:hover {
+button:hover:active {
     cursor: pointer;
     color: var(--blue)
 }
