@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Notifications</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,20 +11,20 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <main class="container">
+        <section class="header">
             <div class="header__left">
                 <h1>Notifications</h1>
                 <div class="notifications-number-holder">
-                    <p id="notifications-number">3</p>
+                    <p id="notifications-number"></p>
                 </div>
             </div>
             <div class="header__right">
                 <button class="mark-button" onclick="markAllAsRead()">Mark all as read</button>
             </div>
-        </div>
-        <ul id="notifications-list" class="notifications-list"></ul>
-    </div>
+        </section>
+        <section id="notifications-list" class="notifications-list"></section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

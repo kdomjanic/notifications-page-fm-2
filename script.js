@@ -3,6 +3,7 @@ const notificationsNumber = document.getElementById('notifications-number')
 const notifications = [
     {
         imageSrc: 'assets/avatar-mark-webber.webp',
+        imageAltText: 'User image: Mark Webber',
         userName: 'Mark Webber',
         action: 'REACT_TO_POST',
         post: 'My first tournament today!',
@@ -14,6 +15,7 @@ const notifications = [
     },
     {
         imageSrc: 'assets/avatar-angela-gray.webp',
+        imageAltText: 'User image: Angela Gray',
         userName: 'Angela Gray',
         action: 'FOLLOW',
         post: null,
@@ -25,6 +27,7 @@ const notifications = [
     },
     {
         imageSrc: 'assets/avatar-jacob-thompson.webp',
+        imageAltText: 'User image: Jacob Thompson',
         userName: 'Jacob Thompson',
         action: 'JOIN_GROUP',
         post: null,
@@ -36,6 +39,7 @@ const notifications = [
     },
     {
         imageSrc: 'assets/avatar-rizky-hasanuddin.webp',
+        imageAltText: 'User image: Rizky Hasanuddin',
         userName: 'Rizky Hasanuddin',
         action: 'PRIVATE_MESSAGE',
         post: null,
@@ -47,6 +51,7 @@ const notifications = [
     },
     {
         imageSrc: 'assets/avatar-kimberly-smith.webp',
+        imageAltText: 'User image: Kimberly Smith',
         userName: 'Kimberly Smith',
         action: 'COMMENT_ON_PICTURE',
         post: null,
@@ -58,6 +63,7 @@ const notifications = [
     },
     {
         imageSrc: 'assets/avatar-nathan-peterson.webp',
+        imageAltText: 'User image: Nathan Peterson',
         userName: 'Nathan Peterson',
         action: 'REACT_TO_POST',
         post: '5 end-game strategies to increase your win rate',
@@ -69,6 +75,7 @@ const notifications = [
     },
     {
         imageSrc: 'assets/avatar-anna-kim.webp',
+        imageAltText: 'User image: Anna Kim',
         userName: 'Anna Kim',
         action: 'LEFT_GROUP',
         post: null,
@@ -92,11 +99,12 @@ function createNotificationsList() {
             notificationsNumberCounter++
         }
         // CREATE LIST ITEM
-        const listItem = document.createElement('li');
+        const listItem = document.createElement('article');
         listItem.classList.add('notification');
         // ADD USER IMAGE
         const userImage = document.createElement('img');
         userImage.src = notification.imageSrc;
+        userImage.alt = notification.imageAltText
         // CREATE MESSAGE PARAGRAPH
         const message = document.createElement('p')
         // BUILD MESSAGE
