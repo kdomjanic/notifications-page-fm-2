@@ -37,7 +37,6 @@ html,
 body {
     height: 100%;
     font-size: 16px;
-
 }
 /*
   Typographic tweaks!
@@ -138,6 +137,7 @@ body {
 
 .notifications-list {
     padding: 0;
+    overflow: scroll !important;
 }
 
 .notification {
@@ -155,7 +155,7 @@ body {
     margin: 0.5rem;
 }
 
-.notification p {
+.notification div {
     text-align: start;
     font-size: 0.75rem;
     margin: 0.5rem;

@@ -112,8 +112,8 @@ function createNotificationsList() {
         const userImage = document.createElement('img');
         userImage.src = notification.imageSrc;
         userImage.alt = notification.imageAltText
-        // CREATE MESSAGE PARAGRAPH
-        const message = document.createElement('p')
+        // CREATE MESSAGE ELEMENT
+        const message = document.createElement('div')
         // BUILD MESSAGE
         switch (notification.action) {
             case 'REACT_TO_POST':
@@ -203,7 +203,7 @@ function createNotificationsList() {
                 message.appendChild(document.createElement('br'));
                 const notificationTimePrivateMessage = defineNotificationTimeSpan(notification.time);
                 message.appendChild(notificationTimePrivateMessage);
-                const privateMessage = document.createElement("span");
+                const privateMessage = document.createElement("p");
                 privateMessage.textContent = `${notification.message}`;
                 privateMessage.classList.add('private-message');
                 message.appendChild(privateMessage)
